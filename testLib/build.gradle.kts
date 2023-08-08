@@ -7,6 +7,7 @@ plugins {
     kotlinAndroid
     `maven-publish`
     signing
+    id("com.github.dcendents.android-maven")
 }
 
 group = PUBLISH_GROUP_ID
@@ -65,8 +66,8 @@ dependencies {
 
 
 object Config {
-    const val PUBLISH_GROUP_ID = "io.github.sanggunpark"
-    const val PUBLISH_VERSION = "1.0.0"
+    const val PUBLISH_GROUP_ID = "com.github.SangunPark"
+    const val PUBLISH_VERSION = "1.0.1"
     const val PUBLISH_ARTIFACT_ID = "test-lib"
 }
 
