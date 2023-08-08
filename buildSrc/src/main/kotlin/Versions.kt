@@ -22,7 +22,7 @@ const val kotlinSerializationJsonVersion = "1.2.1"
 // Dependencies
 const val coroutineVersion = "1.7.1"
 const val retrofitVersion = "2.9.0"
-const val okHttpVersion = "4.3.1"
+const val okHttpVersion = "4.11.0"
 //const val okHttpUrlConnectorVersion = "3.4.2"
 const val kotlinXSerializationConverter = "0.8.0"
 const val timberVersion = "5.0.1"

@@ -33,8 +33,10 @@ object Dependencies {
     const val koinTest = "io.insert-koin:koin-test:$koinVersion"
     const val koinAndroidTest = "io.insert-koin:koin-android-test:$koinVersion"
 
-    const val okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
-    const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    const val okHttpBom = "com.squareup.okhttp3:okhttp-bom:$okHttpVersion"
+    const val okHttp = "com.squareup.okhttp3:okhttp"
+    const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor"
+    const val okIo = "com.squareup.okio:okio"
     const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
     const val coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion"
     const val dokka = "org.jetbrains.dokka:android-documentation-plugin:$dokkaVersion"
@@ -113,18 +115,20 @@ fun DependencyHandlerScope.compose() {
 }
 
 fun DependencyHandlerScope.coroutines() {
-    impl(Dependencies.coroutine)
+    api(Dependencies.coroutine)
     test(Dependencies.coroutineTest)
 }
 
 fun DependencyHandlerScope.retrofit() {
-    impl(Dependencies.retrofit)
-    impl(Dependencies.retrofitConverterSerialization)
+    api(Dependencies.retrofit)
+    api(Dependencies.retrofitConverterSerialization)
 }
 
 fun DependencyHandlerScope.okHttp() {
-    impl(Dependencies.okHttp)
-    impl(Dependencies.okHttpInterceptor)
+    api(platform(Dependencies.okHttpBom))
+    api(Dependencies.okHttp)
+    api(Dependencies.okHttpInterceptor)
+    api(Dependencies.okIo)
 }
 
 fun DependencyHandlerScope.koin() {
